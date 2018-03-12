@@ -107,7 +107,7 @@ public class AuthoringApp {
 				((JButton) tempMap.get("createButton")).addActionListener(new ActionListener() {
 
 					public void actionPerformed(java.awt.event.ActionEvent evt) {
-
+						controller.reset();
 						cell = Integer.parseInt(numCell.getText());
 						col = Integer.parseInt(numCol.getText());
 						isOpened = true;
@@ -121,6 +121,7 @@ public class AuthoringApp {
 
 						id.add(1);
 						id.add(2);
+
 						temp.dispose();
 					}
 					
@@ -129,8 +130,8 @@ public class AuthoringApp {
 
 				((JButton) tempMap.get("cancelButton")).addActionListener(new ActionListener() {
 					public void actionPerformed(java.awt.event.ActionEvent evt) {
-						cell = Integer.parseInt(numCell.getText());
-						col = Integer.parseInt(numCol.getText());;
+//						cell = Integer.parseInt(numCell.getText());
+//						col = Integer.parseInt(numCol.getText());;
 						isOpened = false;
 						temp.dispose();
 					}
@@ -143,6 +144,7 @@ public class AuthoringApp {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+
 				if (e.getSource().equals("loadScenarioMenuItem")) {
 					isOpened = true;
 					stateChanged();
@@ -158,6 +160,7 @@ public class AuthoringApp {
 						FileParser fp = new FileParser(f);
 						fileStr = fp.getArray();
 					}
+					controller.reset();
 					id=controller.newDocCreated(fileStr);
 					isOpened = true;
 					((JTextField) compMap.get("inputTextField")).setText("");

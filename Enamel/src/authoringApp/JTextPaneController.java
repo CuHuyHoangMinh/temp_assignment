@@ -48,6 +48,16 @@ public class JTextPaneController extends JTextPane {
 		}
 
 	}
+	public void reset()
+	{
+		try {
+			tp.setText("");
+			tp.setPage(getClass().getResource("defaultHTML.html"));
+
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+	}
 
 	/**
 	 * Populates the lines of the JTextPane using the strings from a scenario
